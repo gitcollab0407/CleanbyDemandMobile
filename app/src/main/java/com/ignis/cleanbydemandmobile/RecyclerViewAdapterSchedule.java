@@ -4,6 +4,7 @@ package com.ignis.cleanbydemandmobile;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.text.method.ScrollingMovementMethod;
@@ -17,12 +18,15 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 class RecyclerViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
 
     public TextView a_username;
     public TextView a_service;
     public TextView a_date;
     public TextView a_time;
+    public CircleImageView a_profile;
 
     private ScheduleItemClickListener scheduleItemClickListener;
 
@@ -32,6 +36,7 @@ class RecyclerViewHolder extends RecyclerView.ViewHolder implements View.OnClick
         a_service = (TextView) itemView.findViewById(R.id.a_service);
         a_date = (TextView) itemView.findViewById(R.id.a_date);
         a_time = (TextView) itemView.findViewById(R.id.a_time);
+        a_profile = (CircleImageView) itemView.findViewById(R.id.h_profile);
 
         itemView.setOnClickListener(this);
         itemView.setOnLongClickListener(this);
@@ -81,6 +86,8 @@ public class RecyclerViewAdapterSchedule extends RecyclerView.Adapter<RecyclerVi
         holder.a_service.setText(value[1]);
         holder.a_date.setText(value[2]);
         holder.a_time.setText(value[3]);
+        holder.a_profile.setImageURI(Uri.parse("http://www.vaultads.com/wp-content/uploads/2011/03/google-adsense.jpg"));
+
      // holder.a_username.setText(listData.get(position));
 
         holder.setItemClickListener(new ScheduleItemClickListener() {
